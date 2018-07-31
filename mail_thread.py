@@ -1946,7 +1946,13 @@ class MailThread(models.AbstractModel):
         if template_id:
             update_values = composer.onchange_template_id(template_id, kwargs['composition_mode'], self._name, res_id)['value']
             composer.write(update_values)
-        return composer.send_mail()
+        """ TODO: instead of make change at core method. create new extension
+                  then copy this method and overide code with last line.
+                  from : return composer.send_mail()
+                  to: return True
+        """
+        #return composer.send_mail()
+        return True
 
     # ------------------------------------------------------
     # Followers API
